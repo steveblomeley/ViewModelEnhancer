@@ -1,0 +1,19 @@
+﻿@model ViewModelEnhancer.Models.Location
+
+@{
+    ViewBag.Title = "Location";
+}
+
+<h2>Welcome to @Model.Name</h2>
+
+<br />
+
+@Model.Description
+
+<br />
+
+The weather in @Model.Name on @Model.Date.ToString("dddd, dd MMMM yyyy") is @( string.IsNullOrWhiteSpace(Model.Weather) ? "unknown" : Model.Weather )
+
+<br />
+
+There are currently @Model.Comments.Count() comments about @Model.Name

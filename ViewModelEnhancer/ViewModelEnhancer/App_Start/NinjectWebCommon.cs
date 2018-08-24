@@ -2,6 +2,7 @@
 using System.Web;
 using Microsoft.Web.Infrastructure.DynamicModuleHelper;
 using Ninject;
+using Ninject.Extensions.Conventions;
 using Ninject.Web.Common;
 using Ninject.Web.Common.WebHost;
 using ViewModelEnhancer;
@@ -39,7 +40,12 @@ namespace ViewModelEnhancer
         }
         private static void RegisterServices(IKernel kernel)
         {
-            kernel.Bind<IAugmenter>().To<WeatherAugmenter>();
+            kernel.Bind(x =>
+                x.FromAssemblyContaining(typeof(IAugmenter))
+                    .SelectAllClasses()
+                    .InheritedFrom<IAugmenter>()
+                    .BindAllInterfaces()
+            );
             kernel.Bind<IMasterAugmenter>().To<MasterAugmenter>();
         }
     }

@@ -1,17 +1,22 @@
-﻿namespace ViewModelEnhancer.Augmenters
+﻿using System.Collections.Generic;
+
+namespace ViewModelEnhancer.Augmenters
 {
     public class MasterAugmenter : IMasterAugmenter
     {
-        private readonly IAugmenter _augmenter;
+        private readonly IEnumerable<IAugmenter> _augmenters;
 
-        public MasterAugmenter(IAugmenter augmenter)
+        public MasterAugmenter(IEnumerable<IAugmenter> augmenters)
         {
-            _augmenter = augmenter;
+            _augmenters = augmenters;
         }
 
         public void TryAugment(object model)
         {
-            _augmenter.TryAugment(model);
+            foreach (var augmenter in _augmenters)
+            {
+                augmenter.TryAugment(model);
+            }
         }
     }
 }

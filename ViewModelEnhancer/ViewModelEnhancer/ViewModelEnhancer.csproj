@@ -186,6 +186,7 @@
     <Compile Include="Models\IAugmentWithComments.cs" />
     <Compile Include="Models\IAugmentWithWeather.cs" />
     <Compile Include="Models\Location.cs" />
+    <Compile Include="Models\LocationDay.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

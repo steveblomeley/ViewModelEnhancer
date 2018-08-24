@@ -4,20 +4,6 @@ using System.Linq;
 
 namespace ViewModelEnhancer.Models
 {
-    public interface IAugmentWithWeather
-    {
-        int Id { get; }
-        DateTime Date { get; }
-        string Weather { get; set; }
-    }
-
-    public interface IAugmentWithComments
-    {
-        int Id { get; set; }
-        DateTime Date { get; set; }
-        IEnumerable<string> Comments { get; set; }
-    }
-
     public class Location : IAugmentWithWeather, IAugmentWithComments
     {
         public int Id { get; set; }

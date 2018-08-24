@@ -40,6 +40,7 @@ namespace ViewModelEnhancer
         private static void RegisterServices(IKernel kernel)
         {
             kernel.Bind<IAugmenter>().To<WeatherAugmenter>();
+            kernel.Bind<IMasterAugmenter>().To<MasterAugmenter>();
         }
     }
 }

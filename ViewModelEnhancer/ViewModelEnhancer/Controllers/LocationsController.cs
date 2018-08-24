@@ -7,11 +7,11 @@ namespace ViewModelEnhancer.Controllers
 {
     public class LocationsController : Controller
     {
-        private readonly IAugmenter _weatherAugmenter;
+        private readonly IMasterAugmenter _viewModelAugmenter;
 
-        public LocationsController(IAugmenter weatherAugmenter)
+        public LocationsController(IMasterAugmenter viewModelAugmenter)
         {
-            _weatherAugmenter = weatherAugmenter;
+            _viewModelAugmenter = viewModelAugmenter;
         }
 
         private Location RandomLocation()
@@ -28,7 +28,7 @@ namespace ViewModelEnhancer.Controllers
         public ViewResult GetLocation()
         {
             var model = RandomLocation();
-            _weatherAugmenter.TryAugment(model);
+            _viewModelAugmenter.TryAugment(model);
 
             return View(model);
         }

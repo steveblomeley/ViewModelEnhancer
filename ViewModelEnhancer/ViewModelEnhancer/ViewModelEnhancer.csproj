@@ -165,12 +165,16 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Augmenters\IAugmenter.cs" />
     <Compile Include="Augmenters\AugmenterBase.cs" />
+    <Compile Include="Augmenters\IMasterAugmenter.cs" />
+    <Compile Include="Augmenters\MasterAugmenter.cs" />
     <Compile Include="Augmenters\WeatherAugmenter.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LocationsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\IAugmentWithComments.cs" />
+    <Compile Include="Models\IAugmentWithWeather.cs" />
     <Compile Include="Models\Location.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

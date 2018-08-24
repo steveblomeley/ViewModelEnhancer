@@ -6,7 +6,8 @@ using Ninject.Extensions.Conventions;
 using Ninject.Web.Common;
 using Ninject.Web.Common.WebHost;
 using ViewModelEnhancer;
-using ViewModelEnhancer.Augmenters;
+using ViewModelEnhancer.Models;
+using ViewModelEnhancer.Services.Augmenters;
 
 [assembly: WebActivatorEx.PreApplicationStartMethod(typeof(NinjectWebCommon), "Start")]
 [assembly: WebActivatorEx.ApplicationShutdownMethodAttribute(typeof(NinjectWebCommon), "Stop")]
@@ -15,18 +16,18 @@ namespace ViewModelEnhancer
 {
     public static class NinjectWebCommon
     {
-        private static readonly Bootstrapper bootstrapper = new Bootstrapper();
+        private static readonly Bootstrapper Bootstrapper = new Bootstrapper();
 
         public static void Start()
         {
             DynamicModuleUtility.RegisterModule(typeof(OnePerRequestHttpModule));
             DynamicModuleUtility.RegisterModule(typeof(NinjectHttpModule));
-            bootstrapper.Initialize(CreateKernel);
+            Bootstrapper.Initialize(CreateKernel);
         }
 
         public static void Stop()
         {
-            bootstrapper.ShutDown();
+            Bootstrapper.ShutDown();
         }
 
         private static IKernel CreateKernel()

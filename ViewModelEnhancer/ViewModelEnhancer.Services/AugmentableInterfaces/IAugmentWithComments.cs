@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace ViewModelEnhancer.Models
+namespace ViewModelEnhancer.Services.AugmentableInterfaces
 {
     public interface IAugmentWithComments
     {

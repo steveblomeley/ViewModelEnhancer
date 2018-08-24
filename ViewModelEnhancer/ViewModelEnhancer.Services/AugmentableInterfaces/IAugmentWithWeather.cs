@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ViewModelEnhancer.Models
+namespace ViewModelEnhancer.Services.AugmentableInterfaces
 {
     public interface IAugmentWithWeather
     {

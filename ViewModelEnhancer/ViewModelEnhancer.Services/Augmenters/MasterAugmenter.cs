@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace ViewModelEnhancer.Augmenters
+namespace ViewModelEnhancer.Services.Augmenters
 {
     public class MasterAugmenter : IMasterAugmenter
     {

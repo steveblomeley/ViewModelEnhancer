@@ -172,19 +172,12 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\NinjectWebCommon.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Augmenters\CommentsAugmenter.cs" />
-    <Compile Include="Augmenters\IAugmenter.cs" />
-    <Compile Include="Augmenters\AugmenterBase.cs" />
-    <Compile Include="Augmenters\IMasterAugmenter.cs" />
-    <Compile Include="Augmenters\MasterAugmenter.cs" />
-    <Compile Include="Augmenters\WeatherAugmenter.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LocationsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\IAugmentWithComments.cs" />
-    <Compile Include="Models\IAugmentWithWeather.cs" />
+    <Compile Include="Models\HourlyForecast.cs" />
     <Compile Include="Models\Location.cs" />
     <Compile Include="Models\LocationDay.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -229,6 +222,7 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Locations\GetLocation.cshtml" />
+    <Content Include="Views\Locations\GetLocationDay.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -245,6 +239,12 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.3.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ViewModelEnhancer.Services\ViewModelEnhancer.Services.csproj">
+      <Project>{a8c37416-38e7-4ca1-bebd-880d78fda773}</Project>
+      <Name>ViewModelEnhancer.Services</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

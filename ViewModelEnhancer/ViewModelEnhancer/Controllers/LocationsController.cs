@@ -1,7 +1,8 @@
 ﻿using System;
+using System.Linq;
 using System.Web.Mvc;
-using ViewModelEnhancer.Augmenters;
 using ViewModelEnhancer.Models;
+using ViewModelEnhancer.Services.Augmenters;
 
 namespace ViewModelEnhancer.Controllers
 {
@@ -14,14 +15,30 @@ namespace ViewModelEnhancer.Controllers
             _viewModelAugmenter = viewModelAugmenter;
         }
 
-        private Location RandomLocation()
+        private static Location RandomLocation()
         {
-            return new Location()
+            return new Location
             {
                 Id = 123,
                 Name = "Manchester",
                 Description = "Home of the industrial revolution, and shocking weather.",
                 Date = DateTime.Now
+            };
+        }
+
+        private static LocationDay RandomLocationDay()
+        {
+            return new LocationDay
+            {
+                Id = 124,
+                Name = "Salford",
+                Date = DateTime.Now,
+                HourlyForecasts = Enumerable
+                    .Range(0, 24)
+                    .Select(i => new HourlyForecast{
+                        Hour = new TimeSpan(i, 0, 0),
+                        Weather = string.Empty
+                    })
             };
         }
 
@@ -32,5 +49,12 @@ namespace ViewModelEnhancer.Controllers
 
             return View(model);
         }
+
+        public ViewResult GetLocationDay()
+        {
+            var model = RandomLocationDay();
+            _viewModelAugmenter.TryAugment(model);
+            return View(model);
+        } 
     }
 }

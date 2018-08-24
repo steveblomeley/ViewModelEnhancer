@@ -1,4 +1,4 @@
-﻿namespace ViewModelEnhancer.Augmenters
+﻿namespace ViewModelEnhancer.Services.Augmenters
 {
     public abstract class AugmenterBase<TAugmentable> : IAugmenter
     {

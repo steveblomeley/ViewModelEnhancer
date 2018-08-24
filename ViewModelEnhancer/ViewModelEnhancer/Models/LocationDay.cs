@@ -1,30 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using ViewModelEnhancer.Services.AugmentableInterfaces;
 
 namespace ViewModelEnhancer.Models
 {
-    public interface IHourlyForecast
+    public class LocationDay : IAugmentWithHourlyForecast<HourlyForecast>
     {
-        TimeSpan Hour { get; set; }
-        string Weather { get; set; }
-    }
-
-    public interface ILocationDay<T> where T : IHourlyForecast
-    {
-        int LocationId { get; set; }
-        DateTime Date { get; set; }
-        IEnumerable<T> HourlyForecasts { get; set; }
-    }
-
-    public class HourlyForecast : IHourlyForecast
-    {
-        public TimeSpan Hour { get; set; }
-        public string Weather { get; set; }
-    }
-
-    public class LocationDay : ILocationDay<HourlyForecast>
-    {
-        public int LocationId { get; set; }
+        public int Id { get; set; }
+        public string Name { get; set; }
         public DateTime Date { get; set; }
         public IEnumerable<HourlyForecast> HourlyForecasts { get; set; }
     }

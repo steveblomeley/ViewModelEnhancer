@@ -1,6 +1,6 @@
-﻿using ViewModelEnhancer.Models;
+﻿using ViewModelEnhancer.Services.AugmentableInterfaces;
 
-namespace ViewModelEnhancer.Augmenters
+namespace ViewModelEnhancer.Services.Augmenters
 {
     public class WeatherAugmenter : AugmenterBase<IAugmentWithWeather>
     {

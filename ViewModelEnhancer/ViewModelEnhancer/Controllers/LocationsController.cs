@@ -21,7 +21,6 @@ namespace ViewModelEnhancer.Controllers
             {
                 Id = 123,
                 Name = "Manchester",
-                Description = "Home of the industrial revolution, and shocking weather.",
                 Date = DateTime.Now
             };
         }

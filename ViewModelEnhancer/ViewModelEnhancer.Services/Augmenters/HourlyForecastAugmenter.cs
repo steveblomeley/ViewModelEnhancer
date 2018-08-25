@@ -11,7 +11,20 @@ namespace ViewModelEnhancer.Services.Augmenters
 
             foreach (var hour in hourlyForecasts)
             {
-                hour.Weather = "cold, wet and windy";
+                var hours = hour.Hour.Hours;
+
+                if (hours % 3 == 0)
+                {
+                    hour.Weather = "hot and sunny";
+                }
+                else if (hours % 5 == 0)
+                {
+                    hour.Weather = "breezy for the time of year";
+                }
+                else
+                {
+                    hour.Weather = "cold, wet and windy";
+                }
             }
 
             model.HourlyForecasts = hourlyForecasts;

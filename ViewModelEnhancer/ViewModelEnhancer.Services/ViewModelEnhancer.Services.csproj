@@ -42,10 +42,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AugmentableInterfaces\IAugmentWithComments.cs" />
+    <Compile Include="AugmentableInterfaces\IAugmentWithDescription.cs" />
     <Compile Include="AugmentableInterfaces\IAugmentWithHourlyForecast.cs" />
     <Compile Include="AugmentableInterfaces\IAugmentWithWeather.cs" />
     <Compile Include="AugmentableInterfaces\IHourlyForecast.cs" />
     <Compile Include="Augmenters\AugmenterBase.cs" />
+    <Compile Include="Augmenters\DescriptionAugmenter.cs" />
     <Compile Include="Augmenters\CommentsAugmenter.cs" />
     <Compile Include="Augmenters\HourlyForecastAugmenter.cs" />
     <Compile Include="Augmenters\IAugmenter.cs" />

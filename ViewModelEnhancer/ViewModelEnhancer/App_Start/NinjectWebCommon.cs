@@ -62,6 +62,7 @@ namespace ViewModelEnhancer
             // them in with minimal changes to application code.
             kernel.Bind<IAugmenter>().To<CommentsAugmenter>();
             kernel.Bind<IAugmenter>().To<WeatherAugmenter>();
+            kernel.Bind<IAugmenter>().To<DescriptionAugmenter>();
             kernel.Bind<IAugmenter>().To<HourlyForecastAugmenter<HourlyForecast>>(); // <<- the problem child!
 
             kernel.Bind<IMasterAugmenter>().To<MasterAugmenter>();

@@ -5,7 +5,7 @@ using ViewModelEnhancer.Services.AugmentableInterfaces;
 
 namespace ViewModelEnhancer.Models
 {
-    public class Location : IAugmentWithWeather, IAugmentWithComments
+    public class Location : IAugmentWithDescription, IAugmentWithWeather, IAugmentWithComments
     {
         public int Id { get; set; }
         public string Name { get; set; }

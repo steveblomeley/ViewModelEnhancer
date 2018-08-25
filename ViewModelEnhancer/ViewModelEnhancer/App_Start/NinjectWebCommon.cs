@@ -41,12 +41,25 @@ namespace ViewModelEnhancer
         }
         private static void RegisterServices(IKernel kernel)
         {
-            kernel.Bind(x =>
-                x.FromAssemblyContaining(typeof(IAugmenter))
-                    .SelectAllClasses()
-                    .InheritedFrom<IAugmenter>()
-                    .BindAllInterfaces()
-            );
+            //Bind any "simple" IAugmenters
+            //kernel.Bind(x =>
+            //    x.FromAssemblyContaining(typeof(IAugmenter))
+            //        .SelectAllClasses()
+            //        .InheritedFrom<IAugmenter>()
+            //        .BindAllInterfaces()
+            //);
+            //
+            // TODO: How can we enhance this to bind IAugmenters that take a type parameter??
+            // What we want to achieve is a binding for new HourlyForecastAugmenter<IHourlyForecast>()
+            // Not sure that this can be easily achieved...
+
+            // But... if we explicitly bind multiple concrete types to the same interface, doesn't
+            // Ninject interpret a constructor parameter of IEnumerable<IInterface> as a collection  
+            // of all of the concrete types that are bound to the interface?
+            kernel.Bind<IAugmenter>().To<CommentsAugmenter>();
+            kernel.Bind<IAugmenter>().To<WeatherAugmenter>();
+            kernel.Bind<IAugmenter>().To<HourlyForecastAugmenter<HourlyForecast>>();
+
             kernel.Bind<IMasterAugmenter>().To<MasterAugmenter>();
         }
     }

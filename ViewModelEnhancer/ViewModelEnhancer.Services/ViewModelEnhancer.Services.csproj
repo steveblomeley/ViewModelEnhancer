@@ -43,7 +43,6 @@
   <ItemGroup>
     <Compile Include="ForecastService_WithCopyToList.cs" />
     <Compile Include="ForecastService.cs" />
-    <Compile Include="HourlyForecast.cs" />
     <Compile Include="IForecastService.cs" />
     <Compile Include="LocationWithHourlyForecasts.cs" />
     <Compile Include="NotAController.cs" />

@@ -4,6 +4,11 @@ namespace ViewModelEnhancer.Services
 {
     public class LocationWithHourlyForecasts
     {
-        public IEnumerable<HourlyForecast> HourlyForecasts { get; set; }
+        public IReadOnlyCollection<HourlyForecast> HourlyForecasts { get; set; }
+    }
+
+    public class HourlyForecast
+    {
+        public string Weather { get; set; }
     }
 }

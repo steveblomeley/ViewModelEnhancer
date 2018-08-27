@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using NUnit.Framework;
 
 namespace ViewModelEnhancer.Services.Tests.Augmenters
@@ -13,10 +14,16 @@ namespace ViewModelEnhancer.Services.Tests.Augmenters
 
             var model = new LocationWithHourlyForecasts
             {
-                HourlyForecasts = new[]
-                {
-                    new HourlyForecast{ Weather = string.Empty}
-                }
+                HourlyForecasts = Enumerable
+                    .Range(0, 1)
+                    .Select(i =>
+                    {
+                        Console.WriteLine($"Inside the enumeration, with i={i}");
+                        return new HourlyForecast
+                        {
+                            Weather = string.Empty
+                        };
+                    }).ToList()
             };
 
             Assert.That(model.HourlyForecasts.First().Weather, Is.EqualTo(string.Empty));

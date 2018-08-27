@@ -17,11 +17,15 @@ namespace ViewModelEnhancer.Services
             return new LocationWithHourlyForecasts
             {
                 HourlyForecasts = Enumerable
-                    .Range(0, 24)
-                    .Select(i => new HourlyForecast
+                    .Range(0, 1)
+                    .Select(i =>
                     {
-                        Weather = string.Empty
-                    })
+                        Console.WriteLine($"Inside the enumeration, with i={i}");
+                        return new HourlyForecast
+                        {
+                            Weather = string.Empty
+                        };
+                    }).ToList()
             };
         }
 

@@ -10,6 +10,6 @@ namespace ViewModelEnhancer.Models
         public string Name { get; set; }
         public string Description { get; set; }
         public DateTime Date { get; set; }
-        public IEnumerable<HourlyForecast> HourlyForecasts { get; set; }
+        public IReadOnlyCollection<HourlyForecast> HourlyForecasts { get; set; }
     }
 }

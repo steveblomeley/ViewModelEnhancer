@@ -7,6 +7,6 @@ namespace ViewModelEnhancer.Services.AugmentableInterfaces
     {
         int Id { get; set; }
         DateTime Date { get; set; }
-        IEnumerable<T> HourlyForecasts { get; set; }
+        IReadOnlyCollection<T> HourlyForecasts { get; set; }
     }
 }

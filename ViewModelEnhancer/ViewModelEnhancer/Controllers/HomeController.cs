@@ -38,6 +38,7 @@ namespace ViewModelEnhancer.Controllers
                         Time = new TimeSpan(i, 0, 0),
                         Weather = string.Empty
                     })
+                    .ToList()
             };
         }
 

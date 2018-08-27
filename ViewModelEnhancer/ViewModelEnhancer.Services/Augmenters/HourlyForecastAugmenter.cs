@@ -7,8 +7,6 @@ namespace ViewModelEnhancer.Services.Augmenters
     {
         protected override void Augment(IAugmentWithHourlyForecast<T> model)
         {
-            var hourlyForecasts = model.HourlyForecasts.ToList();
-
             foreach (var forecast in model.HourlyForecasts)
             {
                 var hours = forecast.Time.Hours;
@@ -26,8 +24,6 @@ namespace ViewModelEnhancer.Services.Augmenters
                     forecast.Weather = "cold, wet and windy";
                 }
             }
-
-            model.HourlyForecasts = hourlyForecasts;
         }
     }
 }

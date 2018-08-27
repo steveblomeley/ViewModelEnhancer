@@ -41,6 +41,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ForecastService_WithCopyToList.cs" />
+    <Compile Include="ForecastService.cs" />
+    <Compile Include="HourlyForecast.cs" />
+    <Compile Include="IForecastService.cs" />
+    <Compile Include="LocationWithHourlyForecasts.cs" />
+    <Compile Include="NotAController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

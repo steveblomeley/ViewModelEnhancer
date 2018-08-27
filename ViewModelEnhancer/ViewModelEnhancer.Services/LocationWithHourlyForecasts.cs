@@ -1,10 +1,9 @@
 ﻿using System.Collections.Generic;
 
-namespace ViewModelEnhancer.Models
+namespace ViewModelEnhancer.Services
 {
     public class LocationWithHourlyForecasts
     {
-        public string Name { get; set; }
         public IEnumerable<HourlyForecast> HourlyForecasts { get; set; }
     }
 }

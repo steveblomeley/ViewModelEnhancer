@@ -36,6 +36,13 @@ namespace ViewModelEnhancer.Controllers
             var model = FakeReadFromRepository();
             _viewModelAugmenter.TryAugment(model);
             return View(model);
-        } 
+        }
+
+        public object JustGetTheModel()
+        {
+            var model = FakeReadFromRepository();
+            _viewModelAugmenter.TryAugment(model);
+            return model;
+        }
     }
 }

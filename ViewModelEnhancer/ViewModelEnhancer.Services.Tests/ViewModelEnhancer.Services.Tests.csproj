@@ -76,10 +76,6 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ViewModelEnhancer.Services\ViewModelEnhancer.Services.csproj">
-      <Project>{A8C37416-38E7-4CA1-BEBD-880D78FDA773}</Project>
-      <Name>ViewModelEnhancer.Services</Name>
-    </ProjectReference>
     <ProjectReference Include="..\ViewModelEnhancer\ViewModelEnhancer.csproj">
       <Project>{46E61F08-833C-4CE4-9FD3-1D0AF5797639}</Project>
       <Name>ViewModelEnhancer</Name>

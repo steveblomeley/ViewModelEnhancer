@@ -49,5 +49,35 @@ namespace ViewModelEnhancer.Services.Tests.Augmenters
 
             Assert.That(model.HourlyForecasts.ToArray()[0].Weather, Is.Not.EqualTo(defaultForecast));
         }
+
+        [Test]
+        public void AugmentMethod_StillWorksAsExpected_WhenInvokedVia_AControllerAction_ThatSimplyReturns_TheModel()
+        {
+            const string defaultForecast = "-- no forecast --";
+            var sut = new HourlyForecastAugmenter();
+            var controller = new HomeController(sut, defaultForecast);
+
+            var result = controller.JustGetTheModel();
+
+            Assert.That(result, Is.InstanceOf<LocationWithHourlyForecasts>());
+            var model = (LocationWithHourlyForecasts)result;
+
+            Assert.That(model.HourlyForecasts.ToArray()[0].Weather, Is.Not.EqualTo(defaultForecast));
+        }
+
+        [Test]
+        public void AugmentMethod_StillWorksAsExpected_WhenInvokedVia_ANonControllerMethod_ThatSimplyReturns_TheModel()
+        {
+            const string defaultForecast = "-- no forecast --";
+            var sut = new HourlyForecastAugmenter();
+            var notAcontroller = new NotAController(sut, defaultForecast);
+
+            var result = notAcontroller.JustGetTheModel();
+
+            Assert.That(result, Is.InstanceOf<LocationWithHourlyForecasts>());
+            var model = (LocationWithHourlyForecasts)result;
+
+            Assert.That(model.HourlyForecasts.ToArray()[0].Weather, Is.Not.EqualTo(defaultForecast));
+        }
     }
 }

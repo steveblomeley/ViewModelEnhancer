@@ -5,8 +5,6 @@ VisualStudioVersion = 15.0.28010.2003
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ViewModelEnhancer", "ViewModelEnhancer\ViewModelEnhancer.csproj", "{46E61F08-833C-4CE4-9FD3-1D0AF5797639}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ViewModelEnhancer.Services", "ViewModelEnhancer.Services\ViewModelEnhancer.Services.csproj", "{A8C37416-38E7-4CA1-BEBD-880D78FDA773}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ViewModelEnhancer.Services.Tests", "ViewModelEnhancer.Services.Tests\ViewModelEnhancer.Services.Tests.csproj", "{0E8E3C05-B320-4007-B786-94F64575617D}"
 EndProject
 Global
@@ -19,10 +17,6 @@ Global
 		{46E61F08-833C-4CE4-9FD3-1D0AF5797639}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{46E61F08-833C-4CE4-9FD3-1D0AF5797639}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{46E61F08-833C-4CE4-9FD3-1D0AF5797639}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A8C37416-38E7-4CA1-BEBD-880D78FDA773}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A8C37416-38E7-4CA1-BEBD-880D78FDA773}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A8C37416-38E7-4CA1-BEBD-880D78FDA773}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A8C37416-38E7-4CA1-BEBD-880D78FDA773}.Release|Any CPU.Build.0 = Release|Any CPU
 		{0E8E3C05-B320-4007-B786-94F64575617D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{0E8E3C05-B320-4007-B786-94F64575617D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0E8E3C05-B320-4007-B786-94F64575617D}.Release|Any CPU.ActiveCfg = Release|Any CPU

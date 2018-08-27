@@ -24,7 +24,7 @@ The 24 hour forecast for @Model.Name on @Model.Date.ToString("dddd, dd MMMM yyyy
         @foreach (var hour in Model.HourlyForecasts)
         {
             <tr>
-                <td>@hour.Hour.ToString(@"hh\:mm")</td>
+                <td>@hour.Time.ToString(@"hh\:mm")</td>
                 <td>@(string.IsNullOrWhiteSpace(hour.Weather) ? "-- missing forecast --" : hour.Weather)</td>
             </tr>
         }

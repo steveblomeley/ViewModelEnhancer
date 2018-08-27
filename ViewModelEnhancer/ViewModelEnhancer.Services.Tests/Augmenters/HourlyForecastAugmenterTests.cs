@@ -15,7 +15,7 @@ namespace ViewModelEnhancer.Services.Tests.Augmenters
             {
                 HourlyForecasts = new []
                 {
-                    new HourlyForecast{ Hour = new TimeSpan(12, 0, 0), Weather = string.Empty}
+                    new HourlyForecast{ Time = new TimeSpan(12, 0, 0), Weather = string.Empty}
                 }
             };
 

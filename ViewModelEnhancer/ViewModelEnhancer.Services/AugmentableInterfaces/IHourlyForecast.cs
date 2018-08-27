@@ -4,7 +4,7 @@ namespace ViewModelEnhancer.Services.AugmentableInterfaces
 {
     public interface IHourlyForecast
     {
-        TimeSpan Hour { get; set; }
+        TimeSpan Time { get; set; }
         string Weather { get; set; }
     }
 }

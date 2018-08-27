@@ -35,7 +35,7 @@ namespace ViewModelEnhancer.Controllers
                 HourlyForecasts = Enumerable
                     .Range(0, 24)
                     .Select(i => new HourlyForecast{
-                        Hour = new TimeSpan(i, 0, 0),
+                        Time = new TimeSpan(i, 0, 0),
                         Weather = string.Empty
                     })
             };

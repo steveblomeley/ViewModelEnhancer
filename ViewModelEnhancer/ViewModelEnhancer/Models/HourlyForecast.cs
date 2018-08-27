@@ -5,7 +5,7 @@ namespace ViewModelEnhancer.Models
 {
     public class HourlyForecast : IHourlyForecast
     {
-        public TimeSpan Hour { get; set; }
+        public TimeSpan Time { get; set; }
         public string Weather { get; set; }
     }
 }

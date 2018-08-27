@@ -9,21 +9,21 @@ namespace ViewModelEnhancer.Services.Augmenters
         {
             var hourlyForecasts = model.HourlyForecasts.ToList();
 
-            foreach (var hour in hourlyForecasts)
+            foreach (var forecast in model.HourlyForecasts)
             {
-                var hours = hour.Hour.Hours;
+                var hours = forecast.Time.Hours;
 
                 if (hours % 3 == 0)
                 {
-                    hour.Weather = "hot and sunny";
+                    forecast.Weather = "hot and sunny";
                 }
                 else if (hours % 5 == 0)
                 {
-                    hour.Weather = "breezy for the time of year";
+                    forecast.Weather = "breezy for the time of year";
                 }
                 else
                 {
-                    hour.Weather = "cold, wet and windy";
+                    forecast.Weather = "cold, wet and windy";
                 }
             }
 

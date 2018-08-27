@@ -41,19 +41,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AugmentableInterfaces\IAugmentWithComments.cs" />
-    <Compile Include="AugmentableInterfaces\IAugmentWithDescription.cs" />
     <Compile Include="AugmentableInterfaces\IAugmentWithHourlyForecast.cs" />
-    <Compile Include="AugmentableInterfaces\IAugmentWithWeather.cs" />
     <Compile Include="AugmentableInterfaces\IHourlyForecast.cs" />
     <Compile Include="Augmenters\AugmenterBase.cs" />
-    <Compile Include="Augmenters\DescriptionAugmenter.cs" />
-    <Compile Include="Augmenters\CommentsAugmenter.cs" />
     <Compile Include="Augmenters\HourlyForecastAugmenter.cs" />
     <Compile Include="Augmenters\IAugmenter.cs" />
-    <Compile Include="Augmenters\IMasterAugmenter.cs" />
-    <Compile Include="Augmenters\MasterAugmenter.cs" />
-    <Compile Include="Augmenters\WeatherAugmenter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

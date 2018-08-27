@@ -8,24 +8,16 @@ namespace ViewModelEnhancer.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly IMasterAugmenter _viewModelAugmenter;
+        private readonly IAugmenter _viewModelAugmenter;
+        private readonly string _defaultForecast;
 
-        public HomeController(IMasterAugmenter viewModelAugmenter)
+        public HomeController(IAugmenter viewModelAugmenter, string defaultForecast = "")
         {
             _viewModelAugmenter = viewModelAugmenter;
+            _defaultForecast = defaultForecast;
         }
 
-        private static Location RandomLocation()
-        {
-            return new Location
-            {
-                Id = 123,
-                Name = "Manchester",
-                Date = DateTime.Now
-            };
-        }
-
-        private static LocationDay RandomLocationDay()
+        private LocationDay RandomLocationDay()
         {
             return new LocationDay
             {
@@ -36,17 +28,9 @@ namespace ViewModelEnhancer.Controllers
                     .Range(0, 24)
                     .Select(i => new HourlyForecast{
                         Time = new TimeSpan(i, 0, 0),
-                        Weather = string.Empty
+                        Weather = _defaultForecast
                     })
             };
-        }
-
-        public ViewResult GetLocation()
-        {
-            var model = RandomLocation();
-            _viewModelAugmenter.TryAugment(model);
-
-            return View(model);
         }
 
         public ViewResult Index()

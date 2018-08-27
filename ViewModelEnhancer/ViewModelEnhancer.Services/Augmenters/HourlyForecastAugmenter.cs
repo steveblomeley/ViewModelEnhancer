@@ -9,7 +9,7 @@ namespace ViewModelEnhancer.Services.Augmenters
         {
             var hourlyForecasts = model.HourlyForecasts.ToList();
 
-            foreach (var forecast in model.HourlyForecasts)
+            foreach (var forecast in hourlyForecasts)
             {
                 var hours = forecast.Time.Hours;
 

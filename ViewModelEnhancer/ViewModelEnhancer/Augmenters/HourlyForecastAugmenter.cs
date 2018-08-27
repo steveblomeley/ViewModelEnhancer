@@ -1,15 +1,17 @@
 ﻿using System.Linq;
-using ViewModelEnhancer.Services.AugmentableInterfaces;
+using ViewModelEnhancer.Models;
 
-namespace ViewModelEnhancer.Services.Augmenters
+namespace ViewModelEnhancer.Augmenters
 {
-    public class HourlyForecastAugmenter<T> : AugmenterBase<IAugmentWithHourlyForecast<T>> where T : class, IHourlyForecast
+    public class HourlyForecastAugmenter : IAugmenter
     {
-        protected override void Augment(IAugmentWithHourlyForecast<T> model)
+        public void TryAugment(object o)
         {
+            if (!(o is LocationWithHourlyForecasts model)) return;
+
             var hourlyForecasts = model.HourlyForecasts.ToList();
 
-            foreach (var forecast in hourlyForecasts)
+            foreach (var forecast in model.HourlyForecasts)
             {
                 var hours = forecast.Time.Hours;
 

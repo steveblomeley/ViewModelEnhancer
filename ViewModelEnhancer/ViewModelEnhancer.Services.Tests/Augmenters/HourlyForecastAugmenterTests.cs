@@ -1,20 +1,20 @@
 ﻿using System;
 using System.Linq;
 using NUnit.Framework;
+using ViewModelEnhancer.Augmenters;
 using ViewModelEnhancer.Controllers;
 using ViewModelEnhancer.Models;
-using ViewModelEnhancer.Services.Augmenters;
 
 namespace ViewModelEnhancer.Services.Tests.Augmenters
 {
     public class HourlyForecastAugmenterTests
     {
-        private LocationDay _model;
+        private LocationWithHourlyForecasts _model;
 
         [SetUp]
         public void Setup()
         {
-            _model = new LocationDay
+            _model = new LocationWithHourlyForecasts
             {
                 HourlyForecasts = new[]
                 {
@@ -26,7 +26,7 @@ namespace ViewModelEnhancer.Services.Tests.Augmenters
         [Test]
         public void AugmentMethod_AddsForecast_ToEachHour()
         {
-            var sut = new HourlyForecastAugmenter<HourlyForecast>();
+            var sut = new HourlyForecastAugmenter();
 
             Assert.That(_model.HourlyForecasts.ToArray()[0].Weather, Is.EqualTo(string.Empty));
 
@@ -39,13 +39,13 @@ namespace ViewModelEnhancer.Services.Tests.Augmenters
         public void AugmentMethod_StillWorksAsExpected_WhenInvokedVia_TheControllerAction()
         {
             const string defaultForecast = "-- no forecast --";
-            var sut = new HourlyForecastAugmenter<HourlyForecast>();
+            var sut = new HourlyForecastAugmenter();
             var controller = new HomeController(sut, defaultForecast);
 
             var result = controller.Index().Model;
 
-            Assert.That(result, Is.InstanceOf<LocationDay>());
-            var model = (LocationDay) result;
+            Assert.That(result, Is.InstanceOf<LocationWithHourlyForecasts>());
+            var model = (LocationWithHourlyForecasts) result;
 
             Assert.That(model.HourlyForecasts.ToArray()[0].Weather, Is.Not.EqualTo(defaultForecast));
         }

@@ -41,11 +41,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AugmentableInterfaces\IAugmentWithHourlyForecast.cs" />
-    <Compile Include="AugmentableInterfaces\IHourlyForecast.cs" />
-    <Compile Include="Augmenters\AugmenterBase.cs" />
-    <Compile Include="Augmenters\HourlyForecastAugmenter.cs" />
-    <Compile Include="Augmenters\IAugmenter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

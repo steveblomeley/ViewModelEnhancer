@@ -1,4 +1,4 @@
-﻿namespace ViewModelEnhancer.Services.Augmenters
+﻿namespace ViewModelEnhancer.Augmenters
 {
     public interface IAugmenter
     {

@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Linq;
 using System.Web.Mvc;
+using ViewModelEnhancer.Augmenters;
 using ViewModelEnhancer.Models;
-using ViewModelEnhancer.Services.Augmenters;
 
 namespace ViewModelEnhancer.Controllers
 {
@@ -17,13 +17,11 @@ namespace ViewModelEnhancer.Controllers
             _defaultForecast = defaultForecast;
         }
 
-        private LocationDay RandomLocationDay()
+        private LocationWithHourlyForecasts FakeReadFromRepository()
         {
-            return new LocationDay
+            return new LocationWithHourlyForecasts
             {
-                Id = 124,
                 Name = "Salford",
-                Date = DateTime.Now,
                 HourlyForecasts = Enumerable
                     .Range(0, 24)
                     .Select(i => new HourlyForecast{
@@ -35,7 +33,7 @@ namespace ViewModelEnhancer.Controllers
 
         public ViewResult Index()
         {
-            var model = RandomLocationDay();
+            var model = FakeReadFromRepository();
             _viewModelAugmenter.TryAugment(model);
             return View(model);
         } 

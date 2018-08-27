@@ -1,15 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using ViewModelEnhancer.Services.AugmentableInterfaces;
+﻿using System.Collections.Generic;
 
 namespace ViewModelEnhancer.Models
 {
-    public class LocationDay : IAugmentWithHourlyForecast<HourlyForecast>
+    public class LocationWithHourlyForecasts
     {
-        public int Id { get; set; }
         public string Name { get; set; }
-        public string Description { get; set; }
-        public DateTime Date { get; set; }
         public IEnumerable<HourlyForecast> HourlyForecasts { get; set; }
     }
 }

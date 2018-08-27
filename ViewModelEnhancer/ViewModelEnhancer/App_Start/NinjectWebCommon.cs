@@ -6,8 +6,8 @@ using Ninject.Extensions.Conventions;
 using Ninject.Web.Common;
 using Ninject.Web.Common.WebHost;
 using ViewModelEnhancer;
+using ViewModelEnhancer.Augmenters;
 using ViewModelEnhancer.Models;
-using ViewModelEnhancer.Services.Augmenters;
 
 [assembly: WebActivatorEx.PreApplicationStartMethod(typeof(NinjectWebCommon), "Start")]
 [assembly: WebActivatorEx.ApplicationShutdownMethodAttribute(typeof(NinjectWebCommon), "Stop")]
@@ -41,7 +41,7 @@ namespace ViewModelEnhancer
         }
         private static void RegisterServices(IKernel kernel)
         {
-            kernel.Bind<IAugmenter>().To<HourlyForecastAugmenter<HourlyForecast>>();
+            kernel.Bind<IAugmenter>().To<HourlyForecastAugmenter>();
         }
     }
 }

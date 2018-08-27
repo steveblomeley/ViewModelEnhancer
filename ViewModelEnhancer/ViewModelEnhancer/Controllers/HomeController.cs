@@ -1,30 +1,59 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
+using ViewModelEnhancer.Models;
+using ViewModelEnhancer.Services.Augmenters;
 
 namespace ViewModelEnhancer.Controllers
 {
     public class HomeController : Controller
     {
-        public ActionResult Index()
+        private readonly IMasterAugmenter _viewModelAugmenter;
+
+        public HomeController(IMasterAugmenter viewModelAugmenter)
         {
-            return View();
+            _viewModelAugmenter = viewModelAugmenter;
         }
 
-        public ActionResult About()
+        private static Location RandomLocation()
         {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
+            return new Location
+            {
+                Id = 123,
+                Name = "Manchester",
+                Date = DateTime.Now
+            };
         }
 
-        public ActionResult Contact()
+        private static LocationDay RandomLocationDay()
         {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
+            return new LocationDay
+            {
+                Id = 124,
+                Name = "Salford",
+                Date = DateTime.Now,
+                HourlyForecasts = Enumerable
+                    .Range(0, 24)
+                    .Select(i => new HourlyForecast{
+                        Hour = new TimeSpan(i, 0, 0),
+                        Weather = string.Empty
+                    })
+            };
         }
+
+        public ViewResult GetLocation()
+        {
+            var model = RandomLocation();
+            _viewModelAugmenter.TryAugment(model);
+
+            return View(model);
+        }
+
+        public ViewResult Index()
+        {
+            var model = RandomLocationDay();
+            _viewModelAugmenter.TryAugment(model);
+            return View(model);
+        } 
     }
 }
